@@ -32,3 +32,15 @@ C:\Users\User\source\repos\Assignment\pairs2\obj\Debug\pairs2.csproj.GenerateRes
 C:\Users\User\source\repos\Assignment\pairs2\obj\Debug\pairs2.csproj.CoreCompileInputs.cache
 C:\Users\User\source\repos\Assignment\pairs2\obj\Debug\pairs2.exe
 C:\Users\User\source\repos\Assignment\pairs2\obj\Debug\pairs2.pdb
+C:\Users\c2057723\source\repos\Assignment-main\Assignment-main\pairs2\bin\Debug\pairs2.exe.config
+C:\Users\c2057723\source\repos\Assignment-main\Assignment-main\pairs2\bin\Debug\pairs2.exe
+C:\Users\c2057723\source\repos\Assignment-main\Assignment-main\pairs2\bin\Debug\pairs2.pdb
+C:\Users\c2057723\source\repos\Assignment-main\Assignment-main\pairs2\obj\Debug\pairs2.csproj.AssemblyReference.cache
+C:\Users\c2057723\source\repos\Assignment-main\Assignment-main\pairs2\obj\Debug\pairs2.csproj.SuggestedBindingRedirects.cache
+C:\Users\c2057723\source\repos\Assignment-main\Assignment-main\pairs2\obj\Debug\pairs2.Form1.resources
+C:\Users\c2057723\source\repos\Assignment-main\Assignment-main\pairs2\obj\Debug\pairs2.aboutbox.resources
+C:\Users\c2057723\source\repos\Assignment-main\Assignment-main\pairs2\obj\Debug\pairs2.Properties.Resources.resources
+C:\Users\c2057723\source\repos\Assignment-main\Assignment-main\pairs2\obj\Debug\pairs2.csproj.GenerateResource.cache
+C:\Users\c2057723\source\repos\Assignment-main\Assignment-main\pairs2\obj\Debug\pairs2.csproj.CoreCompileInputs.cache
+C:\Users\c2057723\source\repos\Assignment-main\Assignment-main\pairs2\obj\Debug\pairs2.exe
+C:\Users\c2057723\source\repos\Assignment-main\Assignment-main\pairs2\obj\Debug\pairs2.pdb

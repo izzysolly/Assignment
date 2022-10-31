@@ -30,6 +30,8 @@ namespace pairs2
         List<string> checkmatch = new List<string>();
         // array to check if they match
         bool[,] TableSpotUsed = new bool[rowsize, columnsize];
+        bool PositionUsed = false;
+        // checks if col or row has been used
 
 
 
@@ -59,20 +61,33 @@ namespace pairs2
             // randomizes which card is selected.
             int totalcards = 0;
 
+            int row;
+            int column;
+
+           
             while (totalcards < (rowsize * columnsize)) 
             {
-                int row = random.Next(0, rowsize);
-                int column = random.Next(0, columnsize);
+                row = random.Next(0, rowsize);
+                column = random.Next(0, columnsize);
                 // goes to row 0 to 5 and picks a random space
 
-                if (TablePositionUsed[row, column] == false)
+                while(PositionUsed == false)
                 {
-                    Table[row, column] = cards[totalcards];
-                    TablePositionUsed[row, column] = true;
-                    totalcards++;
-                    // changes the value to true, so there is a card assigned to the table positon.
+                    if (TablePositionUsed[row, column] == false)
+                    {
+                        Table[row, column] = cards[totalcards];
+                        TablePositionUsed[row, column] = true;
+                        totalcards++;
+                        PositionUsed = true;
+                        // changes the value to true, so there is a card assigned to the table positon.
+                    }
+                    else if (TablePositionUsed[row, column] == true)
+                    {
+                        row = random.Next(0, rowsize);
+                        column = random.Next(0, columnsize);
+                    }
                 }
-
+                PositionUsed = false;
             }
         }
 
