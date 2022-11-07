@@ -71,23 +71,13 @@ namespace pairs2
                 column = random.Next(0, columnsize);
                 // goes to row 0 to 5 and picks a random space
 
-                while(PositionUsed == false)
+                if (TablePositionUsed[row, column] == false)
                 {
-                    if (TablePositionUsed[row, column] == false)
-                    {
-                        Table[row, column] = cards[totalcards];
-                        TablePositionUsed[row, column] = true;
-                        totalcards++;
-                        PositionUsed = true;
-                        // changes the value to true, so there is a card assigned to the table positon.
-                    }
-                    else if (TablePositionUsed[row, column] == true)
-                    {
-                        row = random.Next(0, rowsize);
-                        column = random.Next(0, columnsize);
-                    }
+                    Table[row, column] = cards[totalcards];
+                    TablePositionUsed[row, column] = true;
+                    totalcards++;
+                    // changes the value to true, so there is a card assigned to the table positon.
                 }
-                PositionUsed = false;
             }
         }
 
@@ -133,16 +123,19 @@ namespace pairs2
         private void GetCards(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
             Random random = new Random();
-            for (int postition = 1; postition <=(rowsize * columnsize) ; postition += 2)
+            int number = 1;
+            for (int postition = 1; postition < (rowsize*columnsize) ; postition += 2)
             // this makes it have pairs in the 36 cards randomly selected
+            // plus 2 means there is 2 of the same card put in a position
             {
-                int number = random.Next(1, 55);
-               
                 cards[postition - 1] = number;
                 cards[postition] = number;
-                
-               
-                    // adds the card from the folder, pairs postition
+                if (number == 54) 
+                { 
+                    number = 0; 
+                }
+                number++;
+                // adds the card from the folder, pairs postition
             }
 
         }
