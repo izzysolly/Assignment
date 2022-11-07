@@ -28,14 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.player2pick = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.pickshown2 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pickshown1 = new System.Windows.Forms.PictureBox();
             this.player1pick = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -54,43 +59,62 @@
             this.x16ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pickshown1 = new System.Windows.Forms.PictureBox();
-            this.pickshown2 = new System.Windows.Forms.PictureBox();
+            this.timer_flip = new System.Windows.Forms.Timer(this.components);
+            this.timer_ME = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2pick)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pickshown2)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pickshown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player1pick)).BeginInit();
             this.menuStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pickshown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pickshown2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Location = new System.Drawing.Point(0, 24);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1071, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.pickshown2);
             this.groupBox1.Controls.Add(this.player2pick);
+            this.groupBox1.Controls.Add(this.pictureBox2);
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(662, 45);
+            this.groupBox1.Location = new System.Drawing.Point(933, 47);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(138, 588);
+            this.groupBox1.Size = new System.Drawing.Size(138, 644);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(32, 531);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 116);
+            this.pictureBox2.TabIndex = 10;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(6, 399);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(112, 117);
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
             // 
             // player2pick
             // 
             this.player2pick.BackgroundImage = global::pairs2.Properties.Resources.play;
             this.player2pick.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.player2pick.Location = new System.Drawing.Point(0, 163);
+            this.player2pick.Location = new System.Drawing.Point(0, 207);
             this.player2pick.Name = "player2pick";
             this.player2pick.Size = new System.Drawing.Size(138, 186);
             this.player2pick.TabIndex = 8;
@@ -124,25 +148,42 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Player 2";
             // 
+            // pickshown2
+            // 
+            this.pickshown2.Location = new System.Drawing.Point(39, 484);
+            this.pickshown2.Name = "pickshown2";
+            this.pickshown2.Size = new System.Drawing.Size(92, 96);
+            this.pickshown2.TabIndex = 4;
+            this.pickshown2.TabStop = false;
+            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.pickshown1);
             this.groupBox2.Controls.Add(this.player1pick);
+            this.groupBox2.Controls.Add(this.pickshown2);
+            this.groupBox2.Controls.Add(this.pickshown1);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Location = new System.Drawing.Point(0, 51);
+            this.groupBox2.Location = new System.Drawing.Point(0, 47);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(138, 582);
+            this.groupBox2.Size = new System.Drawing.Size(138, 644);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
+            // 
+            // pickshown1
+            // 
+            this.pickshown1.Location = new System.Drawing.Point(7, 382);
+            this.pickshown1.Name = "pickshown1";
+            this.pickshown1.Size = new System.Drawing.Size(90, 96);
+            this.pickshown1.TabIndex = 9;
+            this.pickshown1.TabStop = false;
             // 
             // player1pick
             // 
             this.player1pick.BackgroundImage = global::pairs2.Properties.Resources.play;
             this.player1pick.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.player1pick.Location = new System.Drawing.Point(0, 157);
+            this.player1pick.Location = new System.Drawing.Point(0, 207);
             this.player1pick.Name = "player1pick";
             this.player1pick.Size = new System.Drawing.Size(138, 169);
             this.player1pick.TabIndex = 9;
@@ -178,7 +219,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(24, 548);
+            this.button1.Location = new System.Drawing.Point(24, 598);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 5;
@@ -194,7 +235,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(1071, 24);
             this.menuStrip2.TabIndex = 3;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -288,25 +329,19 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // pickshown1
+            // timer_flip
             // 
-            this.pickshown1.Location = new System.Drawing.Point(0, 332);
-            this.pickshown1.Name = "pickshown1";
-            this.pickshown1.Size = new System.Drawing.Size(138, 210);
-            this.pickshown1.TabIndex = 9;
-            this.pickshown1.TabStop = false;
+            this.timer_flip.Interval = 10000;
+            this.timer_flip.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // pickshown2
+            // timer_ME
             // 
-            this.pickshown2.Location = new System.Drawing.Point(0, 355);
-            this.pickshown2.Name = "pickshown2";
-            this.pickshown2.Size = new System.Drawing.Size(138, 220);
-            this.pickshown2.TabIndex = 4;
-            this.pickshown2.TabStop = false;
+            this.timer_ME.Interval = 500;
+            this.timer_ME.Tick += new System.EventHandler(this.timer_ME_Tick);
             // 
             // Form1
             // 
@@ -314,7 +349,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::pairs2.Properties.Resources.pear;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 632);
+            this.ClientSize = new System.Drawing.Size(1071, 693);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
@@ -326,14 +361,16 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2pick)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pickshown2)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pickshown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player1pick)).EndInit();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pickshown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pickshown2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,6 +406,10 @@
         private System.Windows.Forms.PictureBox player1pick;
         private System.Windows.Forms.PictureBox pickshown2;
         private System.Windows.Forms.PictureBox pickshown1;
+        private System.Windows.Forms.Timer timer_flip;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer timer_ME;
     }
 }
 

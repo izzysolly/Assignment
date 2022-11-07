@@ -228,7 +228,7 @@ namespace GUIImageArray
         /// </summary>
         /// 
 
-        public void Hide_Unmatched_Cards(int[,] cardsArray, bool[,] checkTable, int row1, int col1, int row2, int col2, string Colour, string MatchedColour)
+        public void Hide_Unmatched_Cards(int[,] cardsArray, bool[,] checkTable, string Colour, string MatchedColour)
         {
             for(int r = 0; r<Int_rows; r++)
             {

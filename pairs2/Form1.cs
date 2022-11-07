@@ -88,16 +88,12 @@ namespace pairs2
             gImageArray.Show_Element(Table, row, column);
             // turns card face up after being selected
 
-            if (checkmatch.Count() < 1)
+            checkmatch.Add($"{row},{column}");
+            if (checkmatch.Count() == 2)
             {
-                checkmatch.Add($"{row},{column}");
-            }
-
-            else if (checkmatch.Count() > 1)
-            {
-                checkmatch.Add($"{row},{column}");
                 confirmcards();
             }
+            // when 2 cards have been selected it checks to see if they match
         }
 
         private void confirmcards()
@@ -114,9 +110,12 @@ namespace pairs2
                 TableSpotUsed[Convert.ToInt32(card2[0]), Convert.ToInt32(card2[1])] = true;
                 // these cards have now been matched together
             }
-
-            gImageArray.Hide_Unmatched_Cards(Table, TableSpotUsed, Convert.ToInt32(card1[0]), Convert.ToInt32(card1[1]), Convert.ToInt32(card2[0]), Convert.ToInt32(card2[1]), "PINK", "BLUE");
+            timer_ME.Enabled = true;
+            timer_ME.Start();
+            // starts timer to show selected cards 
             checkmatch.Clear();
+            // hides unmatched cards
+            // clears cards after selection if they do not match
             // clears the array, so there is only 2 cards selected at a time
         }
 
@@ -125,7 +124,7 @@ namespace pairs2
             Random random = new Random();
             int number = 1;
             for (int postition = 1; postition < (rowsize*columnsize) ; postition += 2)
-            // this makes it have pairs in the 36 cards randomly selected
+            // this makes it have pairs in the cards randomly selected
             // plus 2 means there is 2 of the same card put in a position
             {
                 cards[postition - 1] = number;
@@ -165,6 +164,7 @@ namespace pairs2
         {
             aboutbox aboutbox = new aboutbox();
             aboutbox.Show();
+            // brings up about box
            
         }
 
@@ -186,6 +186,9 @@ namespace pairs2
             TablePositionUsed = new bool[rowsize, columnsize];
             cards = new int[rowsize * columnsize];
             // makes it 6 x 6 cards
+
+            timer_flip.Interval = 10000;
+            // ensures timer is still 10 seconds
         }
 
         private void x10ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -204,6 +207,9 @@ namespace pairs2
             TablePositionUsed = new bool[rowsize, columnsize];
             cards = new int[rowsize * columnsize];
             // makes it 10 x 10
+
+            timer_flip.Interval = 15000;
+            // makes timer 15 seconds for 10 x 10
         }
 
         private void x16ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -222,15 +228,20 @@ namespace pairs2
             TablePositionUsed = new bool[rowsize, columnsize];
             cards = new int[rowsize * columnsize];
             // makes it 16 x 16
+
+            timer_flip.Interval = 20000;
+            // makes timer longer for 16x16
         }
 
         private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             textBox1.Text = My_Dialogs.InputBox("ENTER PLAYER 1 NAME");
             textBox2.Text = My_Dialogs.InputBox("ENTER PLAYER 2 NAME");
+            // ensures players have entered their name 
         }
 
         private void button1_Click(object sender, EventArgs e)
+            // the start button
         {
             /*GetCards();
             start();*/
@@ -246,13 +257,19 @@ namespace pairs2
             }
             // stops code from freezing
 
-            gImageArray = new GImageArray(this, Table, 50, 150, 50, 150, 20, getcards);
+            gImageArray = new GImageArray(this, Table, 50, 150, 30, 150, 2, getcards);
+            // 1 =(pixels from top) 2 =(pixels from left) 3=(pixels from bottom) 4 =(pixels from right) 5 = (this is the space between each card)
             // this creates the size of the cards
 
             //gImageArray.Show_All_Backs("pink");
             // makes the cards pink
             gImageArray.Which_Element_Clicked += new GImageArray.ImageClickedEventHandler(Which_Element_Clicked);
             player1pick.Visible = true;
+            // calls the the method
+
+            timer_flip.Enabled = true;
+            timer_flip.Start();
+            // this activates the timer in the start game button
 
         }
 
@@ -261,6 +278,22 @@ namespace pairs2
             MessageBox.Show("thanks for playing");
             this.Close();
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timer_flip.Stop();
+            // stops the timer
+            gImageArray.Show_All_Backs("pink");
+            // flips all cards after 10 seconds
+        }
+
+        private void timer_ME_Tick(object sender, EventArgs e)
+        {
+            timer_ME.Stop();
+            gImageArray.Hide_Unmatched_Cards(Table, TableSpotUsed, "PINK", "BLUE");
+        }
+
+
 
         //private void playersturn()
         //{
