@@ -32,6 +32,9 @@ namespace pairs2
         bool[,] TableSpotUsed = new bool[rowsize, columnsize];
         bool PositionUsed = false;
         // checks if col or row has been used
+        int playerscore1 = 0;
+        int playerscore2 = 0;
+        string activeplayer = "p1";
 
 
 
@@ -64,6 +67,8 @@ namespace pairs2
             int row;
             int column;
 
+            activeplayer = "p1";
+            //starts with player 1
            
             while (totalcards < (rowsize * columnsize)) 
             {
@@ -103,13 +108,59 @@ namespace pairs2
             string[] card2 = checkmatch[1].Split(',');
             // check second card postiotn
 
+            
+            if (activeplayer == "p1")
+            {
+                pickshown1.ImageLocation = Directory.GetCurrentDirectory() + "\\Cards\\" + Table[Convert.ToInt32(card1[0]), Convert.ToInt32(card1[1])] + ".png";
+                pickshown2.ImageLocation = Directory.GetCurrentDirectory() + "\\Cards\\" + Table[Convert.ToInt32(card2[0]), Convert.ToInt32(card2[1])] + ".png";
+            }
+
+            else
+            {
+                pictureBox3.ImageLocation = Directory.GetCurrentDirectory() + "\\Cards\\" + Table[Convert.ToInt32(card1[0]), Convert.ToInt32(card1[1])] + ".png";
+                pictureBox4.ImageLocation = Directory.GetCurrentDirectory() + "\\Cards\\" + Table[Convert.ToInt32(card2[0]), Convert.ToInt32(card2[1])] + ".png";
+            }
+            // displays it in a image box
+
             if (Table[Convert.ToInt32(card1[0]), Convert.ToInt32(card1[1])] == Table[Convert.ToInt32(card2[0]), Convert.ToInt32(card2[1])])
             // gets the x/y cordinate and checks its value.
             {
                 TableSpotUsed[Convert.ToInt32(card1[0]), Convert.ToInt32(card1[1])] = true;
                 TableSpotUsed[Convert.ToInt32(card2[0]), Convert.ToInt32(card2[1])] = true;
                 // these cards have now been matched together
+                if (activeplayer == "p1")
+                {
+                    playerscore1++;
+                   // does score
+                }
+
+                else
+                {
+                    playerscore2++;
+                    
+                       
+                }
+                // allows 2 players
+                // player score
             }
+            if (activeplayer == "p1")
+            {
+             // this changes the active player
+                activeplayer = "p2";
+            }
+
+            else
+            {
+                
+                activeplayer = "p1";
+
+            }
+            // allows 2 players
+            player1score.Text = playerscore1.ToString();
+            // displays players score
+            player2score.Text = playerscore2.ToString();
+            //displays players score
+
             timer_ME.Enabled = true;
             timer_ME.Start();
             // starts timer to show selected cards 
@@ -235,9 +286,20 @@ namespace pairs2
 
         private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            textBox1.Text = My_Dialogs.InputBox("ENTER PLAYER 1 NAME");
-            textBox2.Text = My_Dialogs.InputBox("ENTER PLAYER 2 NAME");
-            // ensures players have entered their name 
+            enter_name_class EnterNamePopUp = new enter_name_class();
+
+            EnterNamePopUp.Boxtitle = "enter name";
+            EnterNamePopUp.Message = "please enter p1 name";
+
+            textBox1.Text = EnterNamePopUp.EnterNamePopUp();
+            // runs the cord, loads the pop up
+
+            
+            EnterNamePopUp.Message = "please enter p2 name";
+
+            textBox2.Text = EnterNamePopUp.EnterNamePopUp();
+            // runs the cord, loads the pop up
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -291,6 +353,41 @@ namespace pairs2
         {
             timer_ME.Stop();
             gImageArray.Hide_Unmatched_Cards(Table, TableSpotUsed, "PINK", "BLUE");
+        }
+
+        private void saveGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string cards = "";
+            // saves cards
+            string pairsmatched = "";
+            // saves the cards already been paired together
+            string playernames = textBox1.Text + "," + textBox2.Text + ",";
+            // saves the player names, commers to correspond with excel
+
+            var savegame = "";
+            // type of variable acts the same as a string. to add to a file needs to be a var
+
+            for (int row = 0; row < rowsize; row++)
+            {
+                for (int column = 0; column < columnsize; column++)
+                {
+                    cards = cards + Table[row, column].ToString() + "|";
+                    // gets each card in game and stores it in a string
+                    pairsmatched = pairsmatched + TableSpotUsed[row, column].ToString() + "|";
+                    // get each pairs that have been matched and stores it in a string
+                }
+
+            }
+
+            savegame = $"{playernames} + {cards} + , + {pairsmatched} \n";
+            // put its into a string and saves into the excel file
+            File.AppendAllText(Directory.GetCurrentDirectory() + "\\saving games.csv", savegame);
+            // adds all the info to a file and saves
+        }
+
+        private void openGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
 

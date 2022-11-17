@@ -32,16 +32,18 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.player2score = new System.Windows.Forms.Label();
             this.player2pick = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pickshown2 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pickshown1 = new System.Windows.Forms.PictureBox();
+            this.player1score = new System.Windows.Forms.Label();
             this.player1pick = new System.Windows.Forms.PictureBox();
+            this.pickshown1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -62,13 +64,13 @@
             this.timer_flip = new System.Windows.Forms.Timer(this.components);
             this.timer_ME = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2pick)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pickshown2)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pickshown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player1pick)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pickshown1)).BeginInit();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,9 +84,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.player2score);
             this.groupBox1.Controls.Add(this.player2pick);
-            this.groupBox1.Controls.Add(this.pictureBox2);
-            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.pictureBox4);
+            this.groupBox1.Controls.Add(this.pictureBox3);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label4);
@@ -94,21 +97,14 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
-            // pictureBox2
+            // player2score
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(32, 531);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 116);
-            this.pictureBox2.TabIndex = 10;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(6, 399);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(112, 117);
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
+            this.player2score.AutoSize = true;
+            this.player2score.Location = new System.Drawing.Point(39, 146);
+            this.player2score.Name = "player2score";
+            this.player2score.Size = new System.Drawing.Size(13, 13);
+            this.player2score.TabIndex = 11;
+            this.player2score.Text = "0";
             // 
             // player2pick
             // 
@@ -120,6 +116,22 @@
             this.player2pick.TabIndex = 8;
             this.player2pick.TabStop = false;
             this.player2pick.Visible = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Location = new System.Drawing.Point(32, 531);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(100, 116);
+            this.pictureBox4.TabIndex = 10;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(6, 399);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(112, 117);
+            this.pictureBox3.TabIndex = 9;
+            this.pictureBox3.TabStop = false;
             // 
             // label5
             // 
@@ -158,6 +170,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.player1score);
             this.groupBox2.Controls.Add(this.player1pick);
             this.groupBox2.Controls.Add(this.pickshown2);
             this.groupBox2.Controls.Add(this.pickshown1);
@@ -171,13 +184,14 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             // 
-            // pickshown1
+            // player1score
             // 
-            this.pickshown1.Location = new System.Drawing.Point(7, 382);
-            this.pickshown1.Name = "pickshown1";
-            this.pickshown1.Size = new System.Drawing.Size(90, 96);
-            this.pickshown1.TabIndex = 9;
-            this.pickshown1.TabStop = false;
+            this.player1score.AutoSize = true;
+            this.player1score.Location = new System.Drawing.Point(48, 146);
+            this.player1score.Name = "player1score";
+            this.player1score.Size = new System.Drawing.Size(13, 13);
+            this.player1score.TabIndex = 10;
+            this.player1score.Text = "0";
             // 
             // player1pick
             // 
@@ -189,6 +203,14 @@
             this.player1pick.TabIndex = 9;
             this.player1pick.TabStop = false;
             this.player1pick.Visible = false;
+            // 
+            // pickshown1
+            // 
+            this.pickshown1.Location = new System.Drawing.Point(7, 382);
+            this.pickshown1.Name = "pickshown1";
+            this.pickshown1.Size = new System.Drawing.Size(90, 96);
+            this.pickshown1.TabIndex = 9;
+            this.pickshown1.TabStop = false;
             // 
             // label1
             // 
@@ -262,12 +284,14 @@
             this.saveGameToolStripMenuItem.Name = "saveGameToolStripMenuItem";
             this.saveGameToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.saveGameToolStripMenuItem.Text = "save game";
+            this.saveGameToolStripMenuItem.Click += new System.EventHandler(this.saveGameToolStripMenuItem_Click);
             // 
             // openGameToolStripMenuItem
             // 
             this.openGameToolStripMenuItem.Name = "openGameToolStripMenuItem";
             this.openGameToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.openGameToolStripMenuItem.Text = "open game";
+            this.openGameToolStripMenuItem.Click += new System.EventHandler(this.openGameToolStripMenuItem_Click);
             // 
             // exitGameToolStripMenuItem
             // 
@@ -361,14 +385,14 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2pick)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pickshown2)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pickshown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player1pick)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pickshown1)).EndInit();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
@@ -407,9 +431,11 @@
         private System.Windows.Forms.PictureBox pickshown2;
         private System.Windows.Forms.PictureBox pickshown1;
         private System.Windows.Forms.Timer timer_flip;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Timer timer_ME;
+        private System.Windows.Forms.Label player1score;
+        private System.Windows.Forms.Label player2score;
     }
 }
 
